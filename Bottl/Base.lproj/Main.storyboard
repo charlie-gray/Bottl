@@ -63,6 +63,7 @@
                                 </state>
                                 <connections>
                                     <action selector="RefreshMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sNR-XL-eRL"/>
+                                    <action selector="getMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V4F-GH-QIs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhV-JG-kYk">
@@ -92,8 +93,12 @@
                             <outletCollection property="gestureRecognizers" destination="fTe-0C-c4M" appends="YES" id="n3a-Kx-xtd"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="FWj-PM-6vu"/>
                     <connections>
                         <outlet property="MessageOutText" destination="THM-Wd-2zU" id="KLy-LF-qh6"/>
+                        <outlet property="ScreenA" destination="8bC-Xf-vdC" id="SFo-R8-LT9"/>
+                        <outlet property="dateTimeOut" destination="IJ1-m1-jRU" id="LfF-3t-b47"/>
+                        <outlet property="msgOut" destination="THM-Wd-2zU" id="ddf-sc-SAP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -113,7 +118,7 @@
         <!--View Controller-->
         <scene sceneID="eo3-Ko-Wau">
             <objects>
-                <viewController id="d2v-fI-DWB" sceneMemberID="viewController">
+                <viewController id="d2v-fI-DWB" customClass="ViewController" customModule="Bottl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X26-Qq-WzM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,7 +145,14 @@
                                     <color key="titleColor" systemColor="opaqueSeparatorColor"/>
                                     <imageReference key="backgroundImage" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Bnc-Fd-FzT" kind="unwind" unwindAction="returnHomeWithUnwindSegue:" id="MCf-Yf-DNE"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-DC-ZHz">
+                                <rect key="frame" x="189" y="30" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mcO-Am-q0a"/>
                         <color key="backgroundColor" red="0.033276165199437505" green="0.060923420738736862" blue="0.15317357512953367" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -148,12 +160,13 @@
                     <navigationItem key="navigationItem" id="3Nf-e4-G5Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejS-UH-rqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Bnc-Fd-FzT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="839.13043478260875" y="103.79464285714285"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SFj-TX-l4Z"/>
+        <segue reference="CzQ-7z-wzp"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
